@@ -149,3 +149,22 @@ $(function () {
       $('.log').fadeIn()
    })
 })
+
+let validation = new JustValidate("form")
+
+let selector = document.querySelectorAll(".selector")
+let im = new Inputmask("+7(999) 999-99-99")
+im.mask(selector)
+
+// validation.addField("#email__log", [
+//    {
+//       rule: "required",
+//       errorMessage: "Введите номер!"
+//    },
+//    {
+//       rule: "minLength",
+//       value: 11,
+//       errorMessage: "Минимум 11 символов!"
+//    },
+// ])
+

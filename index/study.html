@@ -17,12 +17,12 @@
 <body>
    <div class="wrapper">
       <div class="log">
-         <form action="mailto:agator3000@gmail.com" enctype="text/plain">
+         <form action="mailto:agator3000@gmail.com" enctype="text/plain" id="form">
             <div class="log__inner">
                <hr>
 
-               <label for="email__log"><b>Email</b></label>
-               <input class="log__input" type="text" placeholder="Enter Email" id="email__log" required>
+               <label for="email__log"><b>Phone</b></label>
+               <input class="log__input selector" type="tel" placeholder="Enter Phone number" id="email__log" required>
 
                <label for="psw__log"><b>Password</b></label>
                <input class="log__input" type="password" placeholder="Enter Password" id="psw__log" required>
@@ -35,8 +35,8 @@
       <div class="register">
          <form action="action_page.php">
             <div class="register__inner">
-               <label for="email__register"><b>Email</b></label>
-               <input class="register__input" type="text" placeholder="Enter Email" id="email__register" required>
+               <label for="email__register"><b>Phone</b></label>
+               <input class="register__input selector" type="tel" placeholder="Enter Phone number" id="email__register" required>
 
                <label for="psw__register"><b>Password</b></label>
                <input class="register__input" type="password" placeholder="Enter Password" id="psw__register" required>
@@ -1615,6 +1615,8 @@
    crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="../script/inputmask.min.js"></script>
+<script src="../script/just-validate.min.js"></script>
 <script src="../script/study.js"></script>
 
 </html>
