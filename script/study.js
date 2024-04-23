@@ -156,15 +156,32 @@ let selector = document.querySelectorAll(".selector")
 let im = new Inputmask("+7(999) 999-99-99")
 im.mask(selector)
 
-// validation.addField("#email__log", [
-//    {
-//       rule: "required",
-//       errorMessage: "Введите номер!"
-//    },
-//    {
-//       rule: "minLength",
-//       value: 11,
-//       errorMessage: "Минимум 11 символов!"
-//    },
-// ])
+validation.addField("#email__log", [
+   {
+      rule: "required",
+      errorMessage: "Введите номер!"
+   },
+   // {
+   //    rule: "minLength",
+   //    value: 11,
+   //    errorMessage: "Минимум 11 символов!"
+   // },
+]).onSuccess(async function () {
+   let data = {
+      tel: document.getElementById("email__log").value,
+      password: document.getElementById("psw__log").value,
+   }
+
+   let response = await fetch("mail.php", {
+      method: "POST",
+      body: JSON.stringify(data),
+      header: {
+         "Content-type": "application/json; charset=utf-8" 
+      }
+   })
+
+   console.log(data)
+   let result = response.text()
+   alert(result)
+})
 

